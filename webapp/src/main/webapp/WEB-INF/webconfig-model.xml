@@ -310,7 +310,7 @@
    <reportdisplayer javaClass="org.intermine.bio.web.displayer.GeneOntologyDisplayer"
                      jspName="model/geneOntologyDisplayer.jsp"
                      replacesFields="goAnnotation,ontologyAnnotations"
-                     placement="Genomics"
+                     placement="Function"
                      types="Gene"/>
 
     <reportdisplayer javaClass="org.intermine.bio.web.displayer.GeneStructureDisplayer"
@@ -408,16 +408,16 @@
 											enrichIdentifier="pathways.identifier"
 											constraints="organism.taxonId=[list], primaryIdentifier != null"
 											typeClass="Gene"
-											views="symbol, organism.name, pathways.identifier, pathways.name"
+											views="primaryIdentifier, symbol, organism.name, pathways.identifier, pathways.name"
 											externalLink="http://www.genome.jp/kegg-bin/show_pathway?map=map"/>
 
-			 <bagtabledisplayer id="orthologues" title="Orthologues" pathStrings="Gene.homologues[type=orthologue].homologue.organism"
+			 <bagtabledisplayer id="orthologues" title="Orthologues" pathStrings="Gene.homologues.homologue.organism"
 			                description="Counts of genes in list with orthologues."
 											displayFields="name"
 											exportField="primaryIdentifier"
 											typeClass="Gene"
 											columnTitle="Genes"
-											views="secondaryIdentifier, symbol, organism.shortName,
+											views="primaryIdentifier, symbol, organism.shortName,
 											       homologues.homologue.primaryIdentifier,
 														 homologues.homologue.symbol,
 														 homologues.homologue.organism.shortName,
